@@ -69,20 +69,23 @@
     </div>
         <script src="https://speed-agility-3695--dev.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
 
-    <div id="lightningLocator"></div>
-
-    <script>
-        $Lightning.use("c:embedFlowInExternalWebsiteApp",
-            function() {
-                $Lightning.createComponent(
-                    "c:embedFlowInExternalWebsite",
-                    { },                  
-                    "lightningLocator",   
-                    function(cmp) {}
-                );
-            },
-            'https://speed-agility-3695--dev.sandbox.my.salesforce-sites.com'
-        );
-    </script>
+    <div class='column'>
+        <div id="lightningLocator"></div>
+  
+      <script>
+          $Lightning.use("c:embedFlowInExternalWebsiteApp",
+              function() {
+                  $Lightning.createComponent(
+                      "c:embedFlowInExternalWebsite",
+                      { },                  
+                      "lightningLocator",   
+                      function(cmp) {}
+                  );
+              },
+              'https://speed-agility-3695--dev.sandbox.my.salesforce-sites.com'
+          );
+      </script>
+    </div>
+    
   </body>
 </html>
