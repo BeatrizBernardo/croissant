@@ -10,3 +10,10 @@ body {
 .column{
   max-width: 50%;
 }
+
+.contact-form{
+    display: flex;m
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
