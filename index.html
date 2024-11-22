@@ -15,77 +15,30 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <title>Croissant's World</title>
+    <title>Contact Form/title>
   </head>
   <body>
-    <div class="container">
-      <h1 class="text-center mt-5">The world of Croissant</h1>
-      <p class="text-center">
-        A croissant (UK: /ˈkrwʌsɒŋ/;[3] , US: /krəsɒnt/; French pronunciation:
-        [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie
-        pastry of Austrian origin,[1] but mostly associated with France.
-        Croissants are named for its historical crescent shape and, like other
-        viennoiserie, are made of a layered yeast-leavened dough. The dough is
-        layered with butter, rolled and folded several times in succession, then
-        rolled into a thin sheet, in a technique called laminating. The process
-        results in a layered, flaky texture, similar to a puff pastry.
-      </p>
-
-      <div class="row text-center">
-        <div class="col-sm-4">
-          <img
-            src="image/croissant_1.jfif"
-            alt="Cooked croissant"
-            class="img-fluid img-croissant shadow p-2 border"
-          />
-        </div>
-        <div class="col-sm-4">
-          <img
-            src="image/croissant_2.jfif"
-            alt="Cooked croissant with seeds"
-            class="img-fluid img-croissant shadow p-2 border"
-          />
-        </div>
-        <div class="col-sm-4">
-          <img
-            src="image/croissant_3.jfif"
-            alt="Inside of croissant"
-            class="img-fluid img-croissant shadow p-2 border"
-          />
-        </div>
+     
+     <script src="https://speed-agility-3695--dev.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
+      <div class='contact-form'>
+          <div id="lightningLocator"></div>
+      
+          <script>
+              let lang = 'PT';
+              let developmentId = 'a010Q00000CuPv2QAF';
+              $Lightning.use("c:embedFlowInExternalWebsiteApp",
+                  function() {
+                      $Lightning.createComponent(
+                          "c:embedFlowInExternalWebsite",
+                          { lang: lang, developmentId: developmentId },                  
+                          "lightningLocator",   
+                          function(cmp) {}
+                      );
+                  },
+                  'https://speed-agility-3695--dev.sandbox.my.salesforce-sites.com'
+              );
+          </script>
       </div>
-
-      <div class="row text-center">
-        <div class="col-sm-4">
-          <a href="/index.html" class="text-center">Back to Homepage</a>
-        </div>
-        <div class="col-sm-4">
-          <a href="/photo.html" class="text-center">Photo</a>
-        </div>
-        <div class="col-sm-4">
-          <a href="/contact.html" class="text-center">Contact</a>
-        </div>
-      </div>
-    </div>
-        <script src="https://speed-agility-3695--dev.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
-
-    <div class='column'>
-        <div id="lightningLocator"></div>
-  
-      <script>
-          $Lightning.use("c:embedFlowInExternalWebsiteApp",
-              function() {
-                  $Lightning.createComponent(
-                      "c:embedFlowInExternalWebsite",
-                      { },                  
-                      "lightningLocator",   
-                      function(cmp) {}
-                  );
-              },
-              'https://speed-agility-3695--dev.sandbox.my.salesforce-sites.com'
-          );
-      </script>
-    </div>
     
   </body>
 </html>
