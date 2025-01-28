@@ -19,25 +19,27 @@
   </head>
   <body>
      
-     <script src="https://legendre--uat.sandbox.my.salesforce-sites.com/lightning/lightning.out.js"></script>
+     <script src="https://legendre.my.salesforce-sites.com//lightning/lightning.out.js"></script>
       <div class='contact-form'>
           <div id="lightningLocator"></div>
-      
+     
           <script>
-              let lang = 'EN';
+            let lang = 'EN';
               $Lightning.use("c:embedFlowInExternalWebsiteApp",
                   function() {
                       $Lightning.createComponent(
                           "c:embedFlowInExternalWebsite",
                           { lang: lang },                  
-                          "lightningLocator",   
+                          "lightningLocator",  
                           function(cmp) {}
                       );
                   },
-                  'https://legendre--uat.sandbox.my.salesforce-sites.com'
+                  'https://legendre.my.salesforce-sites.com'
               );
           </script>
       </div>
     
   </body>
 </html>
+
+
