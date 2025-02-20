@@ -18,7 +18,8 @@
     <title>Contact Form</title>
   </head>
   <body>
-     
+
+    <!--
      <script src="https://legendre.my.salesforce-sites.com/lightning/lightning.out.js"></script>
       <div class='contact-form'>
           <div id="lightningLocator"></div>
@@ -38,8 +39,44 @@
               );
           </script>
       </div>
-    
+    -->
+    <div class="contact-form">
+        <div id="lightningLocator"></div>
+    </div>
   </body>
 </html>
+  <script>
+            function loadLightningOut() {
+                let script = document.createElement("script");
+                script.src = "https://legendre.my.salesforce-sites.com/lightning/lightning.out.js";
+                script.onload = initializeLightning
+                script.onerror = function() {
+                    console.error("Failed to load Lightning Out script.");
+                }
+                ;
 
+                document.head.appendChild(script);
+            }
+
+            function initializeLightning() {
+                let lang = 'EN'
+
+                $Lightning.use("c:embedFlowInExternalWebsiteApp", function() {
+                    $Lightning.createComponent("c:embedFlowInExternalWebsite", {
+                        lang: lang
+                    }, "lightningLocator", function(cmp) {
+                        setTimeout(function() {
+                            $('[data-loading]').fadeOut( () => {
+                                $('.contact-form').fadeIn()
+                            }
+                            )
+                        }, 500)
+                    });
+                }, 'https://legendre.my.salesforce-sites.com/case');
+            }
+
+            $(function() {
+                loadLightningOut()
+            })
+        </script>
 
