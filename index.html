@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <!-- jQuery (Latest Version) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
+<!--<script>
     function loadLightningOut() {
         let script = document.createElement("script");
         script.src = "https://legendre.my.salesforce-sites.com/lightning/lightning.out.js";
@@ -48,7 +48,7 @@
     $(document).ready(function() {
         loadLightningOut();
     });
-</script>
+</script>-->
     <title>Contact Form</title>
   </head>
   <body>
@@ -78,6 +78,38 @@
         <div id="lightningLocator"></div>
     </div>
 
+     <script>
+        function loadLightningOut() {
+            let script = document.createElement("script");
+            script.src = "https://legendre.my.salesforce-sites.com/lightning/lightning.out.js";
+            script.onload = initializeLightning;
+            script.onerror = function() {
+                console.error("Failed to load Lightning Out script.");
+            };
+            document.head.appendChild(script);
+        }
+
+        function initializeLightning() {
+            let lang = 'EN';
+
+            $Lightning.use("c:embedFlowInExternalWebsiteApp", function() {
+                $Lightning.createComponent("c:embedFlowInExternalWebsite", {
+                    lang: lang
+                }, "lightningLocator", function(cmp) {
+                    setTimeout(function() {
+                        $('[data-loading]').fadeOut(() => {
+                            $('.contact-form').fadeIn();
+                        });
+                    }, 500);
+                });
+            }, 'https://legendre.my.salesforce-sites.com/case');
+        }
+
+        // ✅ Now that jQuery is loaded, call the function safely
+        $(document).ready(function() {
+            loadLightningOut();
+        });
+    </script>
     
   </body>
 </html>
