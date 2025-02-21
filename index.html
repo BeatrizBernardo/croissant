@@ -20,26 +20,36 @@
   </head>
   <body>
 
-    
-     <script src="https://legendre.my.salesforce-sites.com/lightning/lightning.out.js"></script>
-      <div class='contact-form'>
-          <div id="lightningLocator"></div>
-     
-          <script>
-            let lang = 'EN';
-              $Lightning.use("c:embedFlowInExternalWebsiteApp",
-                  function() {
-                      $Lightning.createComponent(
-                          "c:embedFlowInExternalWebsite",
-                          { lang: lang },                  
-                          "lightningLocator",  
-                          function(cmp) {}
-                      );
-                  },
-                  'https://legendre.my.salesforce-sites.com/case'
-              );
-          </script>
-      </div>
+    !-- Language Selection Links -->
+<a href="#" onclick="setIframeSrc('WebToCaseVF_EN'); return false;">Web To Case VF EN</a><br>
+<a href="#" onclick="setIframeSrc('WebToCaseVF_PT'); return false;">Web To Case VF PT</a><br>
+
+<!-- The iframe to load the VF pages -->
+<iframe id="caseIframe" width="100%" height="900px" frameborder="0" allowfullscreen=""></iframe>
+
+<script>
+    function setIframeSrc(langPage) {
+        var baseUrl = "https://legendre.my.salesforce-sites.com/case/apex/";
+
+        // Define different Visualforce pages based on language
+        var pageMapping = {
+            "WebToCaseVF_EN": baseUrl + "WebToCaseVF_EN",
+            "WebToCaseVF_PT": baseUrl + "WebToCaseVF_PT"
+        };
+
+        var iframe = document.getElementById("caseIframe");
+
+        // Set the iframe source dynamically
+        iframe.src = pageMapping[langPage] || pageMapping["WebToCaseVF_EN"];
+
+        console.log("Iframe updated to: " + iframe.src);
+    }
+
+    // Load default page on startup
+    window.onload = function() {
+        setIframeSrc("WebToCaseVF_EN");  // Default to English page
+    };
+</script>
     
     
   </body>
